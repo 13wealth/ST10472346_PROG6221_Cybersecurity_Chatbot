@@ -20,7 +20,7 @@ namespace Cybersecurity_Chatbot
             Console.WriteLine();
             Console.ResetColor();
 
-            TypeText("Bot: Hello human... I need a name to continue our mission.\n");
+            TypeText("Bot: Hello human... I need your name to continue our mission.\n");
             TypeText("Bot: What should I call you? \nYou: ");
             string name = Console.ReadLine();
 
