@@ -21,12 +21,12 @@ namespace Cybersecurity_Chatbot
             Console.ResetColor();
 
             TypeText("Bot: Hello human... I need a name to continue our mission.\n");
-            TypeText("Bot: What should I call you? ");
+            TypeText("Bot: What should I call you? \nYou: ");
             string name = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(name))                                                                //If user doesn't enter a name, assign a default name
+            if (string.IsNullOrWhiteSpace(name))                                                                //-If user doesn't enter a name, assign a default name
             {
-                name = "User";                                                                                  //Default name if user doesn't provide one
+                name = "User";                                                                                  //-Default name if user doesn't provide one
             }
 
             Console.WriteLine();
@@ -40,10 +40,10 @@ namespace Cybersecurity_Chatbot
         {
             try 
             {
-                SoundPlayer welcome = new SoundPlayer("welcome.wav");                                           //Attempts to play a welcome sound when the chatbot starts
-                welcome.Play();                                                                                 //Plays the welcome sound
+                SoundPlayer welcome = new SoundPlayer("welcome.wav");                                           //-Attempts to play a welcome sound when the chatbot starts
+                welcome.Play();                                                                                 //-Plays the welcome sound
             }
-            catch (Exception e)                                                                                 //If sound cannot be played, it'll catch it here and display error message
+            catch (Exception e)                                                                                 //-If sound cannot be played, it'll catch it here and display error message
             {
                 Console.WriteLine("Bot: Unable to play welcome sound. " + e.Message);
             }
@@ -51,11 +51,28 @@ namespace Cybersecurity_Chatbot
 
         public static void Menu()
         {
-            TypeText("Choose a topic:");
-            TypeText("1) Phishing emails");
-            TypeText("2) Passwords");
-            TypeText("3) Suspicious links");
-            TypeText("4) Exit");
+            string border = new string('*', 60);                                                                //-Creates a string of 60 asterisks to use as a border for the menu display
+            
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(border);
+            Console.WriteLine("        C   H   A   T   B   O   T  -  M   E   N   U     ");
+            Console.WriteLine(border);
+
+            Console.WriteLine();                                                                                //-Adds a blank line for spacing
+
+        //-This will highlight only this line
+            Console.ForegroundColor = ConsoleColor.Green;
+            TypeText("Choose a topic:\n");
+
+        //-Return the section colour for the rest of the items in the border 
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("1) Phishing emails");
+            Console.WriteLine("2) Passwords");
+            Console.WriteLine("3) Suspicious links");
+            Console.WriteLine("4) Exit");
+
+            Console.WriteLine(border);
+            Console.ResetColor();                                                                               //-Resets the console color to default after displaying the menu
         }
 
         public static void ExitMessage()
@@ -73,8 +90,8 @@ namespace Cybersecurity_Chatbot
         public static void InvalidOption()
         {
             Console.WriteLine();
-            TypeText("Bot: I can help with phishing, passwords, or suspicious links.");
-            TypeText("Bot: Please type a topic name, number (1-4), or 'exit'.");
+            TypeText("Bot: I didn't quite understand that. Could you please rephrase.\n");
+            TypeText("Bot: Please type a topic name, number (1-4), or 'exit'.\n");
         }
 
         /*
@@ -89,7 +106,7 @@ namespace Cybersecurity_Chatbot
             foreach (char a in text)
             {
                 Console.Write(a); 
-                System.Threading.Thread.Sleep(delay);                                                           //Delay between each character to create typing effect
+                System.Threading.Thread.Sleep(delay);                                                           //-Delay between each character to create typing effect
             }
         }
     }

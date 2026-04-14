@@ -88,25 +88,25 @@ namespace Cybersecurity_Chatbot
         private static void ExplainPhishing()   
         {
             Console.WriteLine();
-            UI.TypeText("Bot: Phishing is when attackers pretend to be trusted companies or people to steal your information.");
-            UI.TypeText("Bot: Warning signs include urgent language, spelling mistakes, and requests for passwords or banking details.");
-            UI.TypeText("Bot: Safety tip: Do not click links in unexpected messages. Contact the company using an official website.");
+            UI.TypeText("Bot: Phishing is when attackers pretend to be trusted companies or people to steal your information.\n");
+            UI.TypeText("Bot: Warning signs include urgent language, spelling mistakes, and requests for passwords or banking details.\n");
+            UI.TypeText("Bot: Safety tip: Do not click links in unexpected messages. Contact the company using an official website.\n");
         }
 
         private static void ExplainPasswords()
         {
             Console.WriteLine();
-            UI.TypeText("Bot: Strong passwords protect your accounts from being guessed or cracked.");
-            UI.TypeText("Bot: Use long passphrases, avoid personal information, and never reuse the same password on multiple sites.");
-            UI.TypeText("Bot: Safety tip: Use a password manager and enable multi-factor authentication where possible.");
+            UI.TypeText("Bot: Strong passwords protect your accounts from being guessed or cracked.\n");
+            UI.TypeText("Bot: Use long passphrases, avoid personal information, and never reuse the same password on multiple sites.\n");
+            UI.TypeText("Bot: Safety tip: Use a password manager and enable multi-factor authentication where possible.\n");
         }
 
         private static void ExplainSuspiciousLinks()
         {
             Console.WriteLine();
-            UI.TypeText("Bot: Suspicious links can lead to fake websites, malware downloads, or scams.");
-            UI.TypeText("Bot: Hover over links to preview the real address and watch for misspelled domains.");
-            UI.TypeText("Bot: Safety tip: If unsure, do not click. Type the official website address directly into your browser.");
+            UI.TypeText("Bot: Suspicious links can lead to fake websites, malware downloads, or scams.\n");
+            UI.TypeText("Bot: Hover over links to preview the real address and watch for misspelled domains.\n");
+            UI.TypeText("Bot: Safety tip: If unsure, do not click. Type the official website address directly into your browser.\n");
         }
     }
 }

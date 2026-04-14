@@ -7,38 +7,40 @@ namespace Cybersecurity_Chatbot
     {
         static void Main(string[] args)
         {
-            Logo.AnimatedLogo();                                                                                //Display the logo of the chatbot 
-            UI.GetUserData();                                                                                   //Get user data (name, etc.) for a personalized experience    
-            UI.WelcomeMessage();                                                                                //Start the chatbot by displaying a welcome message
-                                                                                  
+            /*Logo.AnimatedLogo();                                                                                //-Display the logo of the chatbot 
+            UI.GetUserData();                                                                                   //-Get user data (name, etc.) for a personalized experience    
+            UI.WelcomeMessage();*/                                                                                //-Start the chatbot by displaying a welcome message
+
             while (true)
             {
                 UI.Menu();
-                Console.Write("You: ");                                                                         //Prompt the user for input
+                Console.Write("You: ");                                                                         //-Prompt the user for input
                 string input = Console.ReadLine();
 
-                string choice = InputValidation.InputHandler(input);                                             //Validate and process the user input to determine the topic
+                string choice = InputValidation.InputHandler(input);                                            //-Validate and process the user input to determine the topic
 
-                if (choice == "exit")
+                /*
+                 * The conditions below treats the variable "choice" as the final processed input.
+                 * If the user types "exit" or "4", it will trigger the exit condition
+                 */
+                if (choice == "exit")                                                                           //-Early exit condition
                 {
                     UI.ExitMessage();
                     break;
                 }
 
-                bool valid = ResponseSystem.HandleTopic(choice);                                                //Handles the validated input by providing an appropriate response.
+                bool valid = ResponseSystem.HandleTopic(choice);                                                //-Try to handle the input as a topic. If it matches a topic, it will provide the relevant information.
 
-                if (!valid)                                                                                      //If the input was not a general conversational input, try to handle it as a topic
-                {
-                    valid = ResponseSystem.HandleGeneral(choice);                                                                         //Then return an invalid option message
-                }
+                if (!valid)
+                    valid = ResponseSystem.HandleGeneral(choice);                                               //-If the input doesn't match a topic, try handling it as a general conversational input  
+                if (!valid)
+                    
+                    UI.InvalidOption();                                                                         //-Else handle it as an invalid option
                 
-                if (!valid)                                                                                     //If input was not treated as a topic or general conversation, show invalid option message
-                {
-                    UI.InvalidOption();
-                }
             }
         }
     }
 }
-        
+
+
 
