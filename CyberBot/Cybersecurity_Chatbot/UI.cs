@@ -24,7 +24,7 @@ namespace Cybersecurity_Chatbot
             TypeText("Bot: What should I call you? ");
             string name = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(name))                                                                        // If user doesn't enter a name, assign a default name
             {
                 name = "User";
             }
@@ -40,10 +40,10 @@ namespace Cybersecurity_Chatbot
         {
             try 
             {
-                SoundPlayer welcome = new SoundPlayer("welcome.wav");                                                            //Attempts to play a welcome sound when the chatbot starts
-                welcome.Play();                                                                                                  //Plays the welcome sound
+                SoundPlayer welcome = new SoundPlayer("welcome.wav");                                                    //Attempts to play a welcome sound when the chatbot starts
+                welcome.Play();                                                                                          //Plays the welcome sound
             }
-            catch (Exception e)                                                                                                //If sound cannot be played, it'll catch it here and display error message
+            catch (Exception e)                                                                                          //If sound cannot be played, it'll catch it here and display error message
             {
                 Console.WriteLine("Bot: Unable to play welcome sound. " + e.Message);
             }

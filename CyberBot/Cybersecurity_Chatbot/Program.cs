@@ -14,10 +14,10 @@ namespace Cybersecurity_Chatbot
             while (true)
             {
                 UI.TopicMenu();
-                Console.Write("You: ");
+                Console.Write("You: ");                                                                                 // Prompt the user for input
                 string userInput = Console.ReadLine();
 
-                string topic = InputValidation.InputHandler(userInput);
+                string topic = InputValidation.InputHandler(userInput);                                                 // Validate and process the user input to determine the topic
 
                 if (topic == "exit")
                 {
@@ -25,7 +25,7 @@ namespace Cybersecurity_Chatbot
                     break;
                 }
 
-                bool wasHandled = BotOperations.TryHandleTopic(topic);
+                bool wasHandled = ResponseSystem.TryHandleTopic(topic);                                                 // Handles a topic and provides a response
 
                 if (!wasHandled)
                 {

@@ -2,9 +2,50 @@
 
 namespace Cybersecurity_Chatbot
 {
-    internal class BotOperations
+    internal class ResponseSystem
     {
+        /**
+         * Tries to handle general conversational inputs by providing appropriate responses.
+         * @param input The user input to handle.
+         * @return True if the input was handled; otherwise, false.
+         */
+        public static bool TryHandleGeneral(string input)
+        {
+            switch (input.ToLower())                                                                                    //Convert input to lowercase for case-insensitive comparison
+            {
+                case "how are you":
+                case "how are you?":
+                case "how r u":
+                case "how's it going?":
+                    Console.WriteLine();
+                    UI.TypeText("Bot: I am running optimally and ready to protect you from cyber threats.");
+                    UI.TypeText("Bot: More importantly — how are YOU doing today?");
+                    return true;
 
+                case "what is your purpose":
+                case "what's your purpose":
+                case "purpose":
+                    Console.WriteLine();
+                    UI.TypeText("Bot: My purpose is to educate you about cybersecurity threats and online safety.");
+                    UI.TypeText("Bot: I help you stay safe from phishing, weak passwords, and unsafe browsing.");
+                    return true;
+
+                case "what can i ask you":
+                case "what can i ask":
+                case "help":
+                    Console.WriteLine();
+                    UI.TypeText("Bot: You can ask me about:");
+                    UI.TypeText("- Password safety");
+                    UI.TypeText("- Phishing emails");
+                    UI.TypeText("- Suspicious links");
+                    UI.TypeText("- Safe browsing habits");
+                    UI.TypeText("- General online safety questions");
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
         /**
          * Tries to handle the given topic by providing an explanation.
          * @param topic The topic to handle.
@@ -41,7 +82,7 @@ namespace Cybersecurity_Chatbot
             }
         }
 
-        private static void ExplainPhishing()
+        private static void ExplainPhishing()   
         {
             Console.WriteLine();
             Console.WriteLine("Bot: Phishing is when attackers pretend to be trusted companies or people to steal your information.");
