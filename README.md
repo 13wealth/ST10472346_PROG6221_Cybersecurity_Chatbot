@@ -57,6 +57,6 @@ Workflow file: `.github/workflows/ci.yml`
 
 ## References
 
-- OpenAI. (2026). ChatGPT (GPT-5.3-mini) assistance for ASCII art animation. https://chat.openai.com/
+- OpenAI. (2026). ChatGPT (GPT-5.3-mini) assistance for ASCII art animation and State sharing. https://chat.openai.com/
 - Patorjk.com. (n.d.). Text to ASCII Art Generator (TAAG). https://patorjk.com/software/taag/
 

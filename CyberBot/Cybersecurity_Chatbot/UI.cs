@@ -11,7 +11,7 @@ namespace Cybersecurity_Chatbot
     {
         private static SoundPlayer welcomePlayer;
 
-        public static string GetUserData()
+        public static void GetUserData()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
@@ -31,12 +31,12 @@ namespace Cybersecurity_Chatbot
                 name = "User";                                                                                  //-Default name if user doesn't provide one
             }
 
+            StateSharing.Name = name;
+
             Console.WriteLine();
-            TypeText($"Bot: Nice to meet you, {name}! \n");
+            TypeText("Bot: Nice to meet you, " + name + "! \n");
             TypeText("Bot: Please type a topic name, number (1-4), or 'exit'\n");
             Console.WriteLine();
-
-            return name;
         }
 
         public static void WelcomeMessage()
@@ -54,6 +54,7 @@ namespace Cybersecurity_Chatbot
 
         public static void Menu()
         {
+            Console.WriteLine();                                                                                //-Adds a blank line for spacing
             string border = new string('*', 64);                                                                //-Creates a string of 64 asterisks to use as a border for the menu display
             
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -78,24 +79,6 @@ namespace Cybersecurity_Chatbot
             Console.ResetColor();                                                                               //-Resets the console color to default after displaying the menu
         }
 
-        public static void ExitMessage()
-        {
-            Console.WriteLine();
-            TypeText("Bot: Thanks for chatting. Stay alert online and keep your accounts secure.");
-        }
-
-        public static void GoodbyeMessage()
-        {
-            Console.WriteLine();
-            TypeText("Bot: Great job learning about online safety. Goodbye.");
-        }
-
-        public static void InvalidOption()
-        {
-            Console.WriteLine();
-            TypeText("Bot: I didn't quite understand that. Could you please rephrase.\n");
-            TypeText("Bot: Please type a topic name, number (1-4), or 'exit'.\n");
-        }
 
         /*
          * Reusable method to display text with a typing effect.
