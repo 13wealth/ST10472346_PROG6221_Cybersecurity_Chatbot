@@ -9,6 +9,8 @@ namespace Cybersecurity_Chatbot
      */
     internal class UI
     {
+        private static SoundPlayer welcomePlayer;
+
         public static string GetUserData()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -40,12 +42,12 @@ namespace Cybersecurity_Chatbot
         {
             try 
             {
-                SoundPlayer welcome = new SoundPlayer("welcome.wav");                                           //-Attempts to play a welcome sound when the chatbot starts
-                welcome.Play();                                                                                 //-Plays the welcome sound
+                welcomePlayer = new SoundPlayer("welcome.wav");                                               //-Attempts to play a welcome sound when the chatbot starts
+                welcomePlayer.Play();                                                                           //-Plays the welcome sound asynchronously in the background
             }
-            catch (Exception e)                                                                                 //-If sound cannot be played, it'll catch it here and display error message
+            catch (Exception)                                                                                   //-If sound cannot be played, continue silently
             {
-                Console.WriteLine("Bot: Unable to play welcome sound. " + e.Message);
+                //-Intentionally continue without interrupting the onboarding flow
             }
         }
 
