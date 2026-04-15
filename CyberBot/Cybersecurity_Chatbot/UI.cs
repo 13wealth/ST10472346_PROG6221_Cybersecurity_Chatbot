@@ -31,7 +31,7 @@ namespace Cybersecurity_Chatbot
                 name = "User";                                                                                  //-Default name if user doesn't provide one
             }
 
-            StateSharing.Name = name;
+            StateSharing.Name = name;                                                                           //-Store the user's name in a shared state for use throughout the chatbot's responses
 
             Console.WriteLine();
             TypeText("Bot: Nice to meet you, " + name + "! \n");
@@ -41,6 +41,11 @@ namespace Cybersecurity_Chatbot
 
         public static void WelcomeMessage()
         {
+            if (!OperatingSystem.IsWindows())                                                                   //-Checks if the operating system is Windows, as SoundPlayer is only supported on Windows.
+            {
+                return;                                                                                         //-If it is not, skip the sound playback to avoid errors.
+            }
+
             try 
             {
                 welcomePlayer = new SoundPlayer("welcome.wav");                                                 //-Attempts to play a welcome sound when the chatbot starts
